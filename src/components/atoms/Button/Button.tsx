@@ -9,36 +9,34 @@ export interface ButtonProps {
   /** Is this the principal call to action on the page? */
   primary?: boolean;
   /** What background color to use */
-  backgroundColor?: string;
+  backgroundcolor?: string;
   /** How large should the button be? */
   size?: 'small' | 'large';
   /** Button contents */
   label: string;
-
-  /** Viewport type */
-  viewport?: 'desktop' | 'mobile';
   /** Optional click handler */
   onClick?: () => void;
 }
 
 /** Primary UI component for user interaction */
 export const Button = ({
-  primary = false,
+  primary = true,
   size = 'large',
-
   label,
   ...props
 }: ButtonProps) => {
 
-  const mode = primary ? 'bg-[#555ab9] text-white' : 'storybook-button--secondary';
+  const mode = primary ? 'font-roboto bg-[#555ab9] text-white' : 'bg-white text-black';
 
-  const style = clsx(mode,
-    size && `storybook-button--${size}`,
-    props.backgroundColor && `bg-${props.backgroundColor}`
+  const sizeTw = size === 'small' ? 'text-sm p-2' : 'p-3';
+
+  const backgroundcolor = props.backgroundcolor ? `bg-${props.backgroundcolor}` : '';
+
+  const style = clsx('uppercase block rounded-md font-bold cursor-pointer disabled:bg-gray-500 disabled:text-white hover:opacity-80 text-sm sm:text-base shadow-md transition-all duration-200 ease-in-out hover:scale-105 border border-solid',
+    mode,
+    size && sizeTw,
+    props.backgroundcolor && backgroundcolor
   );
-
-
-
 
   return (
     <button

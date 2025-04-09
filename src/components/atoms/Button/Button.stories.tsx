@@ -5,18 +5,22 @@ import { Button } from './Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'Button',
+    title: 'Atoms/Button',
     component: Button,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'centered',
+        backgrounds: {
+            // 👇 Set default background value for all component stories
+            default: 'light',
+        },
     },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
     tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+    /*     argTypes: {
+            backgroundcolor: { control: 'color' },
+        }, */
     // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
     args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
@@ -27,39 +31,35 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
     args: {
-        primary: true,
-        label: 'Push Me',
+        label: 'Anotarse',
         size: "large",
-        viewport: "desktop",
-        disabled: true
     },
 };
 
 export const Secondary: Story = {
     args: {
-        label: 'Push Me',
+        label: 'Anotarse',
+        primary: false,
     },
 };
 
 export const Disabled: Story = {
     args: {
-        label: 'Push Me',
+        label: 'Anotarse',
         disabled: true,
     },
 };
 
 export const Custom_Color: Story = {
     args: {
-        label: 'Push Me',
-        primary: true,
-        backgroundColor: '#4a008c',
+        label: 'Anotarse',
+        backgroundcolor: 'red-500',
     },
 };
 export const Custom_Color2: Story = {
     args: {
-        label: 'Push Me',
-        primary: true,
-        backgroundColor: 'green-200',
+        label: 'Anotarse',
+        backgroundcolor: 'green-500',
     },
 };
 
@@ -67,33 +67,27 @@ export const Custom_Color2: Story = {
 export const Desktop_Large: Story = {
     args: {
         size: 'large',
-        label: 'Push Me',
-
-        viewport: "desktop",
+        label: 'Anotarse',
     },
 };
 
 export const Desktop_Small: Story = {
     args: {
         size: 'small',
-        label: 'Push Me',
-        viewport: "desktop",
+        label: 'Anotarse',
     },
 };
 
 export const Mobile_Large: Story = {
     args: {
         size: 'large',
-        label: 'Push Me',
-
-        viewport: "mobile",
+        label: 'Anotarse',
     },
 };
 
 export const Mobile_Small: Story = {
     args: {
         size: 'small',
-        label: 'Push Me',
-        viewport: "mobile",
+        label: 'Anotarse',
     },
 };
