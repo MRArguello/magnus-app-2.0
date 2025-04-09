@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+
+/* Global Styles */
+@layer base {
+
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --disabled-gray: #545454;
+    --dark-gray: #212121;
+    --light-blue: #00BFFF;
+  }
+
 }
 
 @theme inline {

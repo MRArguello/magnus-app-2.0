@@ -5,7 +5,7 @@ import { Button } from './Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'Example/Button',
+    title: 'Button',
     component: Button,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -28,33 +28,71 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         primary: true,
-        label: 'otra cosa',
+        label: 'Push Me',
+        size: "large",
+        viewport: "desktop"
     },
 };
 
 export const Secondary: Story = {
     args: {
-        label: 'Button',
+        label: 'Push Me',
     },
 };
 
-export const Large: Story = {
+export const Disabled: Story = {
+    args: {
+        label: 'Push Me',
+        disabled: true,
+    },
+};
+
+export const Custom_Color: Story = {
+    args: {
+        label: 'Push Me',
+        primary: true,
+        backgroundColor: '#4a008c',
+    },
+};
+export const Custom_Color2: Story = {
+    args: {
+        label: 'Push Me',
+        primary: true,
+        backgroundColor: '#e65100',
+    },
+};
+
+
+export const Desktop_Large: Story = {
     args: {
         size: 'large',
-        label: 'Button',
+        label: 'Push Me',
+
+        viewport: "desktop",
     },
 };
 
-export const Small: Story = {
+export const Desktop_Small: Story = {
     args: {
         size: 'small',
-        label: 'Button',
+        label: 'Push Me',
+        viewport: "desktop",
     },
 };
 
-export const Button2: Story = {
+export const Mobile_Large: Story = {
     args: {
-        primary: false,
-        label: "Button"
-    }
+        size: 'large',
+        label: 'Push Me',
+
+        viewport: "mobile",
+    },
+};
+
+export const Mobile_Small: Story = {
+    args: {
+        size: 'small',
+        label: 'Push Me',
+        viewport: "mobile",
+    },
 };
