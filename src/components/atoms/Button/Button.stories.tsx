@@ -30,7 +30,8 @@ export const Primary: Story = {
         primary: true,
         label: 'Push Me',
         size: "large",
-        viewport: "desktop"
+        viewport: "desktop",
+        disabled: true
     },
 };
 
@@ -58,7 +59,7 @@ export const Custom_Color2: Story = {
     args: {
         label: 'Push Me',
         primary: true,
-        backgroundColor: '#e65100',
+        backgroundColor: 'green-200',
     },
 };
 

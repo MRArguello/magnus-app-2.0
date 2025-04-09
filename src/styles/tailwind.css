@@ -13,6 +13,21 @@
     --light-blue: #00BFFF;
   }
 
+  button {
+    @apply uppercase block bg-white text-black cursor-pointer disabled:bg-gray-700 disabled:text-white hover:opacity-80;
+
+    border-radius: 0;
+    border: none;
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0 auto;
+    max-width: 15rem;
+  }
+
+
+
+
 }
 
 @theme inline {

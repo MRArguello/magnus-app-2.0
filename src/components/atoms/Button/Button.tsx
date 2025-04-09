@@ -1,5 +1,6 @@
+"use client"
 import React from 'react';
-import './button.css';
+
 import clsx from 'clsx'
 
 export interface ButtonProps {
@@ -24,33 +25,30 @@ export interface ButtonProps {
 export const Button = ({
   primary = false,
   size = 'large',
-  backgroundColor,
+
   label,
   ...props
 }: ButtonProps) => {
 
+  const mode = primary ? 'bg-[#555ab9] text-white' : 'storybook-button--secondary';
 
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const style = clsx(mode,
+    size && `storybook-button--${size}`,
+    props.backgroundColor && `bg-${props.backgroundColor}`
+  );
+
+
+
 
   return (
     <button
       type="button"
       disabled={props.disabled}
       onClick={props.onClick}
-
-      className={clsx('storybook-button',
-        size && `storybook-button--${size}`,
-
-        mode)}
-
+      className={style}
       {...props}
     >
       {label}
-      <style jsx>{`
-        button {
-          background-color: ${backgroundColor};
-        }
-      `}</style>
     </button>
   );
 };
