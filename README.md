@@ -145,4 +145,3 @@ This is a web application for a gym that allows users to view the gym's informat
 
 ### Misc
 - CLSX - For conditional classnames
-- React Icons   - For icons
