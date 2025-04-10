@@ -25,7 +25,7 @@ export const Input: React.FC<InputProps> = ({
     ...props
 }) => {
     const inputClasses = clsx(
-        "m-1 rounded-none  text-center placeholder:text-center focus:outline-none border-b-2  border-zinc-500 focus:border-zinc-300",
+        "rounded-none  text-center placeholder:text-center border-b-2  border-zinc-500 focus:border-zinc-300",
         className
     );
 
