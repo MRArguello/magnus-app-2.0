@@ -12,16 +12,11 @@ const meta = {
         layout: 'centered',
         backgrounds: {
             // 👇 Set default background value for all component stories
-            default: 'light',
+            default: 'dark',
         },
     },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
     tags: ['autodocs'],
-    // More on argTypes: https://storybook.js.org/docs/api/argtypes
-    /*     argTypes: {
-            backgroundcolor: { control: 'color' },
-        }, */
-    // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
     args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
 
@@ -31,14 +26,14 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
     args: {
-        label: 'Anotarse',
+        label: 'Registrarse',
         size: "large",
     },
 };
 
 export const Secondary: Story = {
     args: {
-        label: 'Anotarse',
+        label: 'Ingresar',
         primary: false,
     },
 };
@@ -53,39 +48,25 @@ export const Disabled: Story = {
 export const Custom_Color: Story = {
     args: {
         label: 'Anotarse',
-        backgroundcolor: 'red-500',
+        className: 'bg-red-600',
     },
 };
 export const Custom_Color2: Story = {
     args: {
         label: 'Anotarse',
-        backgroundcolor: 'green-500',
+        className: 'bg-green-800',
     },
 };
 
 
-export const Desktop_Large: Story = {
+export const Large: Story = {
     args: {
         size: 'large',
         label: 'Anotarse',
     },
 };
 
-export const Desktop_Small: Story = {
-    args: {
-        size: 'small',
-        label: 'Anotarse',
-    },
-};
-
-export const Mobile_Large: Story = {
-    args: {
-        size: 'large',
-        label: 'Anotarse',
-    },
-};
-
-export const Mobile_Small: Story = {
+export const Small: Story = {
     args: {
         size: 'small',
         label: 'Anotarse',

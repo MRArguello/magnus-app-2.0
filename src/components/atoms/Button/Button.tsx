@@ -8,14 +8,14 @@ export interface ButtonProps {
   disabled?: boolean;
   /** Is this the principal call to action on the page? */
   primary?: boolean;
-  /** What background color to use */
-  backgroundcolor?: string;
   /** How large should the button be? */
   size?: 'small' | 'large';
   /** Button contents */
   label: string;
   /** Optional click handler */
   onClick?: () => void;
+  /** Optional className */
+  className?: string;
 }
 
 /** Primary UI component for user interaction */
@@ -23,19 +23,18 @@ export const Button = ({
   primary = true,
   size = 'large',
   label,
+  className,
   ...props
 }: ButtonProps) => {
 
-  const mode = primary ? 'font-roboto bg-[#555ab9] text-white' : 'bg-white text-black';
+  const mode = primary ? 'bg-white text-black ' : 'bg-black text-white';
 
   const sizeTw = size === 'small' ? 'text-sm p-2' : 'p-3';
 
-  const backgroundcolor = props.backgroundcolor ? `bg-${props.backgroundcolor}` : '';
-
-  const style = clsx('uppercase block rounded-md font-bold cursor-pointer disabled:bg-gray-500 disabled:text-white hover:opacity-80 text-sm sm:text-base shadow-md transition-all duration-200 ease-in-out hover:scale-105 border border-solid',
-    mode,
+  const style = clsx('font-roboto uppercase block  font-bold cursor-pointer disabled:bg-gray-500 disabled:text-white hover:opacity-80 text-sm sm:text-base ',
+    !className?.includes('bg-') && mode,
     size && sizeTw,
-    props.backgroundcolor && backgroundcolor
+    className
   );
 
   return (
