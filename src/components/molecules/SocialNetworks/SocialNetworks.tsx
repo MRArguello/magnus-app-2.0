@@ -12,7 +12,7 @@ export const SocialNetworks: React.FC<SocialNetworkProps> = ({ withTitle }) => {
 
     return (
         <div className='flex flex-col items-start gap-2'>
-            {withTitle && <Title value='Nuestras Redes' />}
+            {withTitle && <Title value='Nuestras Redes' as='h2' />}
             <div className='flex flex-row gap-2 '>
                 <Link
                     href='https://www.facebook.com/MagnusFightFitness/'

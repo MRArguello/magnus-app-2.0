@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Title } from './Title';
+import { Whatsapp } from './Whatsapp';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'Atom/Title',
-    component: Title,
+    title: 'Molecules/Whatsapp',
+    component: Whatsapp,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'centered',
@@ -15,23 +15,14 @@ const meta = {
     },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
     tags: ['autodocs'],
-} satisfies Meta<typeof Title>;
+} satisfies Meta<typeof Whatsapp>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Quiénes_Somos: Story = {
+export const Unique_Test: Story = {
     args: {
-        value: 'Quiénes Somos',
+
     },
 };
-
-export const Actividades_y_horarios: Story = {
-    args: {
-        value: 'Actividades y horarios',
-        as: 'h2',
-    },
-};
-
 

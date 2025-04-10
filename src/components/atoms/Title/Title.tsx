@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { JSX } from 'react';
+import clsx from 'clsx';
 
-export interface TitleProps {
-    /** Value */
+export type TitleProps<T extends keyof JSX.IntrinsicElements = 'h1'> = {
+    /** Text to display */
     value: string;
-}
+    /** Additional Tailwind classes */
+    className?: string;
+    /** Optional heading level (e.g., h1, h2...) */
+    as?: T;
+} & React.ComponentPropsWithoutRef<T>;
 
-/** Titles */
-export const Title = ({
+/** Reusable Title Component */
+export const Title = <T extends keyof JSX.IntrinsicElements = 'h1'>({
     value,
+    className,
+    as,
     ...props
-}: TitleProps) => {
+}: TitleProps<T>) => {
+    const Component = (as || 'h1') as keyof JSX.IntrinsicElements;
 
-    const style = 'uppercase text-xl  font-mono font-bold block text-white';
+    const classes = clsx(
+        'uppercase font-bold block text-white text-center',
+        className
+    );
 
-    return (
-        <h1
-            className={style}
-            {...props}
-        >
-            {value}
-        </h1>
+    return React.createElement(
+        Component,
+        { className: classes, ...props },
+        value
     );
 };
