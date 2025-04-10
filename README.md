@@ -78,8 +78,7 @@ This is a web application for a gym that allows users to view the gym's informat
   - First Name
   - Last Name
   - Email
-  - Password
-  - Gym ID
+  - Gym ID (?? Puede ser un ID de gimnasio o una lista de IDs de gimnasio??)
 
 - **Gyms**
   - ID
