@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Description
+This is a web application for a gym that allows users to view the gym's information, schedule, and subscribe to activities. 
 
-## Getting Started
+### Web Sections
+- Landing page
+- Log in page
+- Sign up page
+- Admin page (Waiting to have a user to test the app)
 
-First, run the development server:
+<br />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Frontend Requirements 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Header - Layout Component
+- Social media links
+- Log in button
+- Sign up button
 
-## Learn More
+### Landing Page
+  
+#### For Unlogged Users
+- Landing page with:
+  - Gym information (Opening hours, introduction, Gym Image, etc.)
+  - Gym Time Schedule by activity (As table) - Mobile friendly
+  - Whatsapp link to contact the gym
+  - Footer
+ 
+#### Additional, for Logged Users
+- ??? (Waiting to have a user to test the app)
 
-To learn more about Next.js, take a look at the following resources:
+#### Gym Time Schedule
+- Gym time schedule by activity (As table) - Mobile friendly
+- Activity Selector - To filter the activities by type (e.g. All Activities, Yoga, Crossfit, etc.)
+- Subscribe button - To subscribe to the activity. 
+  - If user is not logged in, will redirect to the login page.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Footer
+- Who we are
+- Where to find us - Google Map Integration
+- Social media links - Facebook & Instagram
+- Contact form
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Sign Up Page
+- Form to create an account: 
+    - Email
+    - Password
+    - First Name
+    - Last Name
+    - Gym ID
+- Leyend : *Este es tu número de afiliado en el gimnasio. Si no estás seguro de cuál es, contactanos!*
+- Button to Log in
 
-## Deploy on Vercel
+### Log in Page
+- Form to log in: 
+    - Email
+    - Password
+- Button to Sign up
+- Button for Password recovery
+  
+### Admin Page
+- ??? (Waiting to have a user to test the app)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<br />
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+<br />
+
+# DB Requirements 
+
+### Tables
+- **Users**
+  - ID
+  - First Name
+  - Last Name
+  - Email
+  - Gym ID (?? Puede ser un ID de gimnasio o una lista de IDs de gimnasio??)
+
+- **Gyms**
+  - ID
+  - Name
+  - Address
+  - Phone
+  - Email
+
+- **Activities**
+  - ID
+  - Name
+  - Description
+  - Schedule (Days and hours)
+  - Gym ID
+
+- **Subscriptions**
+  - ID
+  - User ID
+  - Activity ID
+  - Date
+  - Time
+
+<br />
+
+--- 
+
+<br />
+
+# Auth Requirements 
+### Roles
+- **Admin Role**
+- **User Role**
+
+<br />
+
+--- 
+
+<br />
+
+# Stack
+
+- Next.js - Framework
+- React - UI Library
+- TypeScript - Language
+
+### UI
+- Tailwind CSS - CSS Framework
+  
+### Auth
+- Kinde
+
+### Database
+- Postgres - From Neon (Trough Vercel Postgres)
+- Prisma - ORM
+
+### Hosting
+- Vercel - Hosting
+
+### Documentation & Project Management
+- Storybook - For component documentation
+- Todoist - For project management
+- Discord - For team communication
+
+### Misc
+- CLSX - For conditional classnames
