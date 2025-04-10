@@ -1,41 +1,51 @@
+"use client"
 import React from 'react';
 
-import './button.css';
+import clsx from 'clsx'
 
 export interface ButtonProps {
+  /** Is Disabled? */
+  disabled?: boolean;
   /** Is this the principal call to action on the page? */
   primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
   /** How large should the button be? */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'large';
   /** Button contents */
   label: string;
   /** Optional click handler */
   onClick?: () => void;
+  /** Optional className */
+  className?: string;
 }
 
 /** Primary UI component for user interaction */
 export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
+  primary = true,
+  size = 'large',
   label,
+  className,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+
+  const mode = primary ? 'bg-white text-black ' : 'bg-black text-white';
+
+  const sizeTw = size === 'small' ? 'text-sm p-2' : 'p-3';
+
+  const style = clsx('font-roboto uppercase block  font-bold cursor-pointer disabled:bg-gray-500 disabled:text-white hover:opacity-80 text-sm sm:text-base ',
+    !className?.includes('bg-') && mode,
+    size && sizeTw,
+    className
+  );
+
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      disabled={props.disabled}
+      onClick={props.onClick}
+      className={style}
       {...props}
     >
       {label}
-      <style jsx>{`
-        button {
-          background-color: ${backgroundColor};
-        }
-      `}</style>
     </button>
   );
 };
