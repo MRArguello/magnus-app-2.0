@@ -1,7 +1,6 @@
 import { Title } from "@/components/atoms/Title/Title";
 import { SocialNetworks } from "@/components/molecules/SocialNetworks/SocialNetworks";
-import { Whatsapp } from "@/components/molecules/Whatsapp/Whatsapp";
-
+import { Whatsapp } from "@/components/molecules/Whatsapp/Whatsapp"; 
 
 
 export default function Playground() {
@@ -22,6 +21,4 @@ export default function Playground() {
             </div>
         </div>
     )
-
-
-}
+ }
