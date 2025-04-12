@@ -126,7 +126,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/loca/Code/magnus-app-2.0/prisma/generated/prisma",
+      "value": "/home/elfanocturna/Documents/code/magnus2.0/magnus-app-2.0/prisma/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -140,11 +140,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/loca/Code/magnus-app-2.0/prisma/schema.prisma",
+    "sourceFilePath": "/home/elfanocturna/Documents/code/magnus2.0/magnus-app-2.0/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../..",
@@ -154,7 +154,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
