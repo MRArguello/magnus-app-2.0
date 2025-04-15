@@ -120,7 +120,71 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.UsersScalarFieldEnum = {
   id: 'id',
   firstName: 'firstName',
-  lastName: 'lastName'
+  lastName: 'lastName',
+  email: 'email',
+  phone: 'phone',
+  active: 'active',
+  dateLastActivity: 'dateLastActivity',
+  isVerified: 'isVerified',
+  abonoRemaining: 'abonoRemaining'
+};
+
+exports.Prisma.ActivitiesScalarFieldEnum = {
+  id: 'id',
+  instructorId: 'instructorId',
+  name: 'name',
+  active: 'active',
+  description: 'description',
+  gymId: 'gymId',
+  quota: 'quota'
+};
+
+exports.Prisma.InstructorsScalarFieldEnum = {
+  id: 'id',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email',
+  phone: 'phone',
+  active: 'active'
+};
+
+exports.Prisma.ActivityLogScalarFieldEnum = {
+  id: 'id',
+  activityPlanId: 'activityPlanId',
+  participantId: 'participantId',
+  status: 'status',
+  date: 'date'
+};
+
+exports.Prisma.ActivityPlanningScalarFieldEnum = {
+  id: 'id',
+  activityId: 'activityId',
+  day: 'day',
+  startTime: 'startTime',
+  active: 'active',
+  endTime: 'endTime'
+};
+
+exports.Prisma.ActivityCancellationScalarFieldEnum = {
+  id: 'id',
+  activityPlanningId: 'activityPlanningId',
+  date: 'date',
+  reason: 'reason'
+};
+
+exports.Prisma.GymScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  address: 'address',
+  phone: 'phone',
+  email: 'email'
+};
+
+exports.Prisma.ContactFormScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  message: 'message'
 };
 
 exports.Prisma.SortOrder = {
@@ -140,7 +204,14 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  users: 'users'
+  users: 'users',
+  activities: 'activities',
+  instructors: 'instructors',
+  activityLog: 'activityLog',
+  activityPlanning: 'activityPlanning',
+  activityCancellation: 'activityCancellation',
+  gym: 'gym',
+  contactForm: 'contactForm'
 };
 
 /**
