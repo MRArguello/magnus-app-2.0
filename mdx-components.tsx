@@ -14,7 +14,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
             <h3 className="text-xl font-bold my-2" {...props} />
         ),
         h4: (props) => (
-            <h3 className="text-lg font-bold my-2" {...props} />
+            <h4 className="text-lg font-bold my-2" {...props} />
         ),
         p: (props) => (
             <p className="text-base leading-relaxed mb-2" {...props} />
