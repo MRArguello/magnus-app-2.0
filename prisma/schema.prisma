@@ -3,13 +3,109 @@ generator client {
   output   = "../prisma/generated/prisma"
 }
 
+generator docs {
+  provider = "node node_modules/prisma-docs-generator"
+  output   = "../public/docs"
+}
+
+generator erd {
+  provider                  = "prisma-erd-generator"
+  output                    = "../public/assets/ERD.svg"
+  disableEmoji              = "true"
+  includeRelationFromFields = "true"
+  theme                     = "forest"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model users {
-  id        Int     @id @default(autoincrement())
-  firstName String?
-  lastName  String?
+  id               Int           @id @default(autoincrement())
+  firstName        String
+  lastName         String
+  email            String
+  phone            String?
+  active           Boolean?      @default(true)
+  dateLastActivity DateTime?     @db.Date
+  isVerified       Boolean?
+  abonoRemaining   Int           @default(0)
+  activityLog      activityLog[]
+}
+
+model activities {
+  id               Int                @id @default(autoincrement())
+  instructorId     Int?
+  name             String
+  active           Boolean?           @default(true)
+  description      String
+  gymId            Int
+  quota            Int
+  gym              gym                @relation(fields: [gymId], references: [id], onDelete: NoAction, map: "gymFKEY")
+  instructors      instructors?       @relation(fields: [instructorId], references: [id], map: "instructorFKey")
+  activityPlanning activityPlanning[]
+}
+
+model instructors {
+  id         Int          @id @default(autoincrement())
+  firstName  String
+  lastName   String
+  email      String?
+  phone      String?
+  active     Boolean?     @default(true)
+  activities activities[]
+}
+
+model activityLog {
+  id               Int              @id @default(autoincrement())
+  activityPlanId   Int
+  participantId    Int
+  status           String
+  date             DateTime         @db.Date
+  activityPlanning activityPlanning @relation(fields: [activityPlanId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "activityPlanFkey")
+  users            users            @relation(fields: [participantId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "participantFkey")
+}
+
+model activityPlanning {
+  id                   Int                    @id @default(autoincrement())
+  activityId           Int
+  day                  String
+  startTime            DateTime               @db.Time(6)
+  active               Boolean?               @default(true)
+  endTime              DateTime               @db.Time(6)
+  activityCancellation activityCancellation[]
+  activityLog          activityLog[]
+  activities           activities             @relation(fields: [activityId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "activityFkey")
+}
+
+model activityCancellation {
+  id                 Int               @id @default(autoincrement())
+  activityPlanningId Int?
+  date               DateTime          @db.Date
+  reason             String?
+  activityPlanning   activityPlanning? @relation(fields: [activityPlanningId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "activityPlanningFkey")
+}
+
+model gym {
+  id         Int          @id @default(autoincrement())
+  name       String
+  address    String
+  phone      String
+  email      String
+  activities activities[]
+}
+
+model contactForm {
+  id      Int    @id @default(autoincrement())
+  name    String
+  email   String
+  message String
+}
+
+enum activityLogStatus {
+  subscribed
+  canceled
+  attended
+  unattended
 }
